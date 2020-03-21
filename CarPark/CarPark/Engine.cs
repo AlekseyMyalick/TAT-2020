@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CarPark
 {
-    class Engine
+    public class Engine
     {
         private float _power;
         private float _capacity;
@@ -71,6 +71,15 @@ namespace CarPark
             {
                 _serialNumber = value;
             }
+        }
+
+        public string GetInfo()
+        {
+            return $"ENGINE \n" +
+                $"Power: {_power} horsepower \n" +
+                $"Capacity: {_capacity} centimeters cubic \n" +
+                $"Type: {_type} \n" +
+                $"Serial number: {_serialNumber} \n";
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CarPark
 {
-    class Chassis
+    public class Chassis
     {
         private float _numberOfWheels;
         private string _serialNumber;
@@ -56,6 +56,14 @@ namespace CarPark
             {
                 _permissibleLoad = value;
             }
+        }
+
+        public string GetInfo()
+        {
+            return $"CHASSIS \n" +
+                $"Number of wheels: {_numberOfWheels} \n" +
+                $"Serial number: {_serialNumber}\n" +
+                $"Permissible load: {_permissibleLoad} kilogram \n";
         }
 
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CarPark
 {
-    class Transmission
+    public class Transmission
     {
         private string _type;
         private int _numberOfGears;
@@ -58,5 +58,12 @@ namespace CarPark
             }
         }
 
+        public string GetInfo()
+        {
+            return $"TRANSMISSION \n" +
+                $"Type: {_type}  drive \n" +
+                $"Number of gears: {_numberOfGears} \n" +
+                $"Manufacturer: {_manufacturer} \n";
+        }
     }
 }
