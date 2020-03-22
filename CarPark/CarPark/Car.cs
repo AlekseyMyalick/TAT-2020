@@ -11,11 +11,9 @@ namespace CarPark
         private Engine _engine;
         private Chassis _chassis;
         private Transmission _transmission;
-        private string _name;
 
-        public Car(string name, Engine engine, Chassis chassis, Transmission transmission)
+        public Car(Engine engine, Chassis chassis, Transmission transmission)
         {
-            Name = name;
             EngineField = engine;
             ChassisField = chassis;
             TransmissionField = transmission;
@@ -60,23 +58,9 @@ namespace CarPark
             }
         }
 
-        public string Name
-        {
-            get
-            {
-                return _name;
-            }
-
-            set
-            {
-                _name = value;
-            }
-        }
-
         public string GetInfo()
         {
-            return $"NAME: {_name} \n\n" +
-                $"{_engine.GetInfo()}\n" +
+            return $"{_engine.GetInfo()}\n" +
                 $"{_chassis.GetInfo()}\n" +
                 $"{_transmission.GetInfo()}\n";
         }
