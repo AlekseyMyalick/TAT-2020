@@ -11,8 +11,8 @@ namespace CarPark
         private float _maximumSpeed;
         private int _numberOfSeats;
 
-        public Scooter(float maximumSpeed, int numberOfSeats,Engine engine, Chassis chassis, Transmission transmission)
-            : base(engine, chassis, transmission)
+        public Scooter(string name, float maximumSpeed, int numberOfSeats,Engine engine, Chassis chassis, Transmission transmission)
+            : base(name, engine, chassis, transmission)
         {
             MaximumSpeed = maximumSpeed;
             NumberOfSeats = numberOfSeats;
@@ -47,6 +47,7 @@ namespace CarPark
         public string GetInfoCar()
         {
             return $"GENERAL\n" +
+                $"Name: {Name} \n" +
                 $"Maximum speed: {_maximumSpeed} kilometers per hour\n" +
                 $"Number of seats: {_numberOfSeats}\n\n" + GetInfo();
         }

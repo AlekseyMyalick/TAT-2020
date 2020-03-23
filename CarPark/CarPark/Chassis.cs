@@ -8,18 +8,18 @@ namespace CarPark
 {
     public class Chassis
     {
-        private float _numberOfWheels;
+        private int _numberOfWheels;
         private string _serialNumber;
         private float _permissibleLoad;
 
-        public Chassis(float numberOfWheels, string serialNumbers, float permissibleLoad)
+        public Chassis(int numberOfWheels, string serialNumbers, float permissibleLoad)
         {
             NumberOfWheels = numberOfWheels;
             SerialNumber = serialNumbers;
             PermissibleLoad = permissibleLoad;
         }
 
-        public float NumberOfWheels
+        public int NumberOfWheels
         {
             get
             {
@@ -28,6 +28,7 @@ namespace CarPark
 
             set
             {
+                CheckWheels(value);
                 _numberOfWheels = value;
             }
         }
@@ -41,6 +42,8 @@ namespace CarPark
 
             set
             {
+                CheckSerialNumber(value);
+                LatinCheck(value);
                 _serialNumber = value;
             }
         }
@@ -55,6 +58,33 @@ namespace CarPark
             set
             {
                 _permissibleLoad = value;
+            }
+        }
+
+        void CheckWheels(int value)
+        {
+            if (value < 0)
+            {
+                throw new Exception("the number of wheels cannot be less than zero");
+            }
+        }
+
+        void CheckSerialNumber(string value)
+        {
+            if (value.Length != 17)
+            {
+                throw new Exception("number of characters must be equal to 17");
+            }
+        }
+
+        void LatinCheck(string value)
+        {
+            for (int i = 0; i < value.Length; i++)
+            {
+                if (!(Char.IsDigit(value[i]) || value[i] >= 'A' && value[i] <= 'Z'))
+                {
+                    throw new Exception("Must be capital letters of the latin alphabet");
+                }
             }
         }
 

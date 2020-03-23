@@ -12,9 +12,9 @@ namespace CarPark
         private float _carryingCapacity;
         private float _maximumSpeed;
 
-        public Truck(float weight, float carryingCapacity, float maximumSpeed, 
+        public Truck(string name, float weight, float carryingCapacity, float maximumSpeed, 
             Engine engine, Chassis chassis, Transmission transmission)
-            : base(engine, chassis, transmission)
+            : base(name, engine, chassis, transmission)
         {
             Weight = weight;
             CarryingCapacity = carryingCapacity;
@@ -63,6 +63,7 @@ namespace CarPark
         public string GetInfoCar()
         {
             return $"GENERAL\n" +
+                $"Name: {Name} \n" +
                 $"Weight: {_weight} kilograms\n" +
                 $"Carrying capacity: {_carryingCapacity} kilograms\n" +
                 $"Maximum speed: {_maximumSpeed} kilometers per hour\n\n" + GetInfo();

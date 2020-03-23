@@ -10,15 +10,13 @@ namespace CarPark
     {
         private int _numberOfSeats;
         private int _numberOfDoors;
-        private string _name;
 
         public Bus(string name, int numberOfSeats, int numberOfDoors,
             Engine engine, Chassis chassis, Transmission transmission)
-            : base(engine, chassis, transmission)
+            : base(name, engine, chassis, transmission)
         {
             NumberOfSeats = numberOfSeats;
             NumberOfDoors = numberOfDoors;
-            Name = name;
         }
 
         public int NumberOfSeats
@@ -47,23 +45,10 @@ namespace CarPark
             }
         }
 
-        private string Name
-        {
-            get
-            {
-                return _name;
-            }
-
-            set
-            {
-                _name = value;
-            }
-        }
-
         public string GetInfoCar()
         {
             return $"GENERAL\n" +
-                $"Name {_name}\n" +
+                $"Name: {Name} \n" +
                 $"Number of doors: {_numberOfDoors}\n" +
                 $"Number of seats: {_numberOfSeats}\n\n" + GetInfo();
         }

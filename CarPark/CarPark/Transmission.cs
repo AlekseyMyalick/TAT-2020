@@ -58,10 +58,34 @@ namespace CarPark
             }
         }
 
+        public static string FrontWheel
+        {
+            get
+            {
+                return "front-wheel";
+            }
+        }
+
+        public static string Rear
+        {
+            get
+            {
+                return "rear";
+            }
+        }
+
+        public static string FourWheel
+        {
+            get
+            {
+                return "four-wheel";
+            }
+        }
+
         public string GetInfo()
         {
             return $"TRANSMISSION \n" +
-                $"Type: {_type}  drive \n" +
+                $"Type: {_type} drive \n" +
                 $"Number of gears: {_numberOfGears} \n" +
                 $"Manufacturer: {_manufacturer} \n";
         }
