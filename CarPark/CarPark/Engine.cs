@@ -13,6 +13,9 @@ namespace CarPark
         private string _type;
         private string _serialNumber;
 
+        /// <summary>
+        /// constructor initializes class elements
+        /// </summary>
         public Engine(float power, float capacity, string type, string serialNumber)
         {
             Power = power;
@@ -21,6 +24,9 @@ namespace CarPark
             SerialNumber = serialNumber;
         }
 
+        /// <summary>
+        /// method Power accepts and returns values
+        /// </summary>
         public float Power
         {
             get
@@ -34,6 +40,9 @@ namespace CarPark
             }
         }
 
+        /// <summary>
+        /// method Capasity accepts and returns values
+        /// </summary>
         public float Capacity
         {
             get
@@ -47,6 +56,9 @@ namespace CarPark
             }
         }
 
+        /// <summary>
+        /// method Type accepts and returns values
+        /// </summary>
         public string Type
         {
             get
@@ -60,6 +72,9 @@ namespace CarPark
             }
         }
 
+        /// <summary>
+        /// method SerialNumber accepts and returns values
+        /// </summary>
         public string SerialNumber
         {
             get
@@ -75,6 +90,9 @@ namespace CarPark
             }
         }
 
+        /// <summary>
+        /// method Gas returns line
+        /// </summary>
         public static string Gas
         {
             get
@@ -83,6 +101,9 @@ namespace CarPark
             }
         }
 
+        /// <summary>
+        /// method Diesel returns line
+        /// </summary>
         public static string Diesel
         {
             get
@@ -91,6 +112,9 @@ namespace CarPark
             }
         }
 
+        /// <summary>
+        /// method Electrical returns line
+        /// </summary>
         public static string Electrical
         {
             get
@@ -99,6 +123,9 @@ namespace CarPark
             }
         }
 
+        /// <summary>
+        /// methode CheckSerialNumber throws an error if the value not equal to 17
+        /// </summary>
         void CheckSerialNumber(string value)
         {
             if (value.Length != 17)
@@ -107,6 +134,9 @@ namespace CarPark
             }
         }
 
+        /// <summary>
+        /// methode LatinCheck throws an error if the character does not meet the standards
+        /// </summary>
         void LatinCheck(string value)
         {
             for (int i = 0; i < value.Length; i++)
@@ -118,6 +148,9 @@ namespace CarPark
             }
         }
 
+        /// <summary>
+        /// method GetInfo returns a string with data
+        /// </summary>
         public string GetInfo()
         {
             return $"ENGINE \n" +

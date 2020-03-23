@@ -12,6 +12,9 @@ namespace CarPark
         private int _numberOfGears;
         private string _manufacturer;
 
+        /// <summary>
+        /// constructor initializes class elements
+        /// </summary>
         public Transmission(string type, int numberOfGears, string manufaturer)
         {
             Type = type;
@@ -19,6 +22,9 @@ namespace CarPark
             Manufacturer = manufaturer;
         }
 
+        /// <summary>
+        /// method Type accepts and returns values
+        /// </summary>
         public string Type
         {
             get
@@ -32,6 +38,9 @@ namespace CarPark
             }
         }
 
+        /// <summary>
+        /// method NumberOfGears accepts and returns values
+        /// </summary>
         public int NumberOfGears
         {
             get
@@ -45,6 +54,9 @@ namespace CarPark
             }
         }
 
+        /// <summary>
+        /// method Manufactirer accepts and returns values
+        /// </summary>
         public string Manufacturer
         {
             get
@@ -58,6 +70,9 @@ namespace CarPark
             }
         }
 
+        /// <summary>
+        /// method FrontWheel returns line
+        /// </summary>
         public static string FrontWheel
         {
             get
@@ -66,6 +81,9 @@ namespace CarPark
             }
         }
 
+        /// <summary>
+        /// method Rear returns line
+        /// </summary>
         public static string Rear
         {
             get
@@ -74,6 +92,9 @@ namespace CarPark
             }
         }
 
+        /// <summary>
+        /// method FourWheel returns line
+        /// </summary>
         public static string FourWheel
         {
             get
@@ -82,6 +103,9 @@ namespace CarPark
             }
         }
 
+        /// <summary>
+        /// method GetInfo returns a string with data
+        /// </summary>
         public string GetInfo()
         {
             return $"TRANSMISSION \n" +

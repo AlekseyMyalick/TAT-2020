@@ -11,6 +11,9 @@ namespace CarPark
         private float _maximumSpeed;
         private int _numberOfSeats;
 
+        /// <summary>
+        /// constructor initializes class elements
+        /// </summary>
         public Scooter(string name, float maximumSpeed, int numberOfSeats,Engine engine, Chassis chassis, Transmission transmission)
             : base(name, engine, chassis, transmission)
         {
@@ -18,6 +21,9 @@ namespace CarPark
             NumberOfSeats = numberOfSeats;
         }
 
+        /// <summary>
+        /// method MaximumSpeed accepts and returns values
+        /// </summary>
         public float MaximumSpeed
         {
             get
@@ -31,6 +37,9 @@ namespace CarPark
             }
         }
 
+        /// <summary>
+        /// method NumberOfSeats accepts and returns values
+        /// </summary>
         public int NumberOfSeats
         {
             get
@@ -44,6 +53,9 @@ namespace CarPark
             }
         }
 
+        /// <summary>
+        /// method GetInfo returns a string with data
+        /// </summary>
         public string GetInfoCar()
         {
             return $"GENERAL\n" +

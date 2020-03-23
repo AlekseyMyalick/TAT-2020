@@ -13,6 +13,9 @@ namespace CarPark
         private Chassis _chassis;
         private Transmission _transmission;
 
+        /// <summary>
+        /// constructor initializes class elements
+        /// </summary>
         public Car(string name, Engine engine, Chassis chassis, Transmission transmission)
         {
             Name = name;
@@ -21,6 +24,9 @@ namespace CarPark
             TransmissionField = transmission;
         }
 
+        /// <summary>
+        /// method Name accepts and returns values
+        /// </summary>
         public string Name
         {
             get
@@ -35,7 +41,9 @@ namespace CarPark
             }
         }
 
-
+        /// <summary>
+        /// method EngineField accepts and returns values
+        /// </summary>
         public Engine EngineField
         {
             get
@@ -49,6 +57,9 @@ namespace CarPark
             }
         }
 
+        /// <summary>
+        /// method ChassisField accepts and returns values
+        /// </summary>
         public Chassis ChassisField
         {
             get
@@ -62,6 +73,9 @@ namespace CarPark
             }
         }
 
+        /// <summary>
+        /// method TransmissionField accepts and returns values
+        /// </summary>
         public Transmission TransmissionField
         {
             get
@@ -75,6 +89,9 @@ namespace CarPark
             }
         }
 
+        /// <summary>
+        /// method CheckName throws an error if the character does not meet the standards
+        /// </summary>
         void CheckName(string value)
         {
             for (int i = 0; i < value.Length; i++)
@@ -86,6 +103,9 @@ namespace CarPark
             }
         }
 
+        /// <summary>
+        /// methode LetterCheck returns true or false depending on the character transmitted
+        /// </summary>
         bool LetterCheck(char symbol)
         {
             return (((int)symbol >= (char)65) && ((int)symbol <= (char)90)) ||
@@ -93,6 +113,9 @@ namespace CarPark
                 symbol == ' ' || ((int)symbol >= (char)48) && ((int)symbol <= (char)57);
         }
 
+        /// <summary>
+        /// method GetInfo returns a string with data
+        /// </summary>
         public string GetInfo()
         {
             return $"{_engine.GetInfo()}\n" +

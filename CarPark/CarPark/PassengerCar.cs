@@ -11,6 +11,9 @@ namespace CarPark
         private string _color;
         private float _maximumSpeed;
 
+        /// <summary>
+        /// constructor initializes class elements
+        /// </summary>
         public PassengerCar(string name, string color, float maximumSpeed, Engine engine, Chassis chassis, Transmission transmission)
             :base(name, engine, chassis, transmission)
         {
@@ -18,6 +21,9 @@ namespace CarPark
             MaximumSpeed = maximumSpeed;
         }
 
+        /// <summary>
+        /// method Color accepts and returns values
+        /// </summary>
         public string Color
         {
             get
@@ -31,6 +37,9 @@ namespace CarPark
             }
         }
 
+        /// <summary>
+        /// method MaximumSpeed accepts and returns values
+        /// </summary>
         public float MaximumSpeed
         {
             get
@@ -44,6 +53,9 @@ namespace CarPark
             }
         }
 
+        /// <summary>
+        /// method GetInfo returns a string with data
+        /// </summary>
         public string GetInfoCar()
         {
             return $"GENERAL\n" +

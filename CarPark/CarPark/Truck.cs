@@ -12,6 +12,9 @@ namespace CarPark
         private float _carryingCapacity;
         private float _maximumSpeed;
 
+        /// <summary>
+        /// constructor initializes class elements
+        /// </summary>
         public Truck(string name, float weight, float carryingCapacity, float maximumSpeed, 
             Engine engine, Chassis chassis, Transmission transmission)
             : base(name, engine, chassis, transmission)
@@ -21,6 +24,9 @@ namespace CarPark
             MaximumSpeed = maximumSpeed;
         }
 
+        /// <summary>
+        /// method Weight accepts and returns values
+        /// </summary>
         public float Weight
         {
             get
@@ -34,6 +40,9 @@ namespace CarPark
             }
         }
 
+        /// <summary>
+        /// method CarryingCapacity accepts and returns values
+        /// </summary>
         public float CarryingCapacity
         {
             get
@@ -47,6 +56,9 @@ namespace CarPark
             }
         }
 
+        /// <summary>
+        /// method MaximumSpeed accepts and returns values
+        /// </summary>
         public float MaximumSpeed
         {
             get
@@ -60,6 +72,9 @@ namespace CarPark
             }
         }
 
+        /// <summary>
+        /// method GetInfo returns a string with data
+        /// </summary>
         public string GetInfoCar()
         {
             return $"GENERAL\n" +
