@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CarPark
 {
-    public abstract class Car
+    public abstract class Vehicle
     {
         private string _name;
         private Engine _engine;
@@ -16,7 +16,7 @@ namespace CarPark
         /// <summary>
         /// constructor initializes class elements
         /// </summary>
-        public Car(string name, Engine engine, Chassis chassis, Transmission transmission)
+        public Vehicle(string name, Engine engine, Chassis chassis, Transmission transmission)
         {
             Name = name;
             EngineField = engine;

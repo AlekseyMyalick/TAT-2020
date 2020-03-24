@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CarPark
 {
-    class Scooter:Car
+    class Scooter:Vehicle
     {
         private float _maximumSpeed;
         private int _numberOfSeats;

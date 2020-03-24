@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CarPark
 {
-    public class Bus:Car
+    public class Bus:Vehicle
     {
         private int _numberOfSeats;
         private int _numberOfDoors;

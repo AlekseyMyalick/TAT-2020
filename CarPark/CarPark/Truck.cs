@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CarPark
 {
-    public class Truck:Car
+    public class Truck:Vehicle
     {
         private float _weight;
         private float _carryingCapacity;

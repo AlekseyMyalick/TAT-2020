@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CarPark
 {
-    public class PassengerCar:Car
+    public class PassengerCar:Vehicle
     {
         private string _color;
         private float _maximumSpeed;
