@@ -5,22 +5,21 @@ using System.Collections.Generic;
 namespace UnitTestCalculator
 {
     [TestClass]
-    public class UnitTest1
+    public class TestCalculator
     {
         [TestMethod]
         [DataTestMethod]
-        [DataRow("10", "A")]
-        [DataRow("11", "B")]
-        [DataRow("12", "C")]
-        [DataRow("13", "D")]
-        [DataRow("14", "E")]
-        [DataRow("15", "F")]
-        [DataRow("16", "G")]
-        [DataRow("17", "H")]
-        [DataRow("18", "I")]
-        [DataRow("19", "J")]
-        [DataRow("20", "")]
-        public void ResiderGreaterNine_TestCase(string number ,string expected)
+        [DataRow(10, "A")]
+        [DataRow(11, "B")]
+        [DataRow(12, "C")]
+        [DataRow(13, "D")]
+        [DataRow(14, "E")]
+        [DataRow(15, "F")]
+        [DataRow(16, "G")]
+        [DataRow(17, "H")]
+        [DataRow(18, "I")]
+        [DataRow(19, "J")]
+        public void ResiderGreaterNine_TestCase(int number ,string expected)
         {
             Assert.AreEqual(expected, 
                 DEV_1_2.NumberSystem.ResiderGreaterNine(number));
