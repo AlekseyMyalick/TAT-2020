@@ -14,8 +14,9 @@ namespace CarPark
         /// <summary>
         /// constructor initializes class elements
         /// </summary>
-        public PassengerCar(string name, string color, float maximumSpeed, Engine engine, Chassis chassis, Transmission transmission)
-            :base(name, engine, chassis, transmission)
+        public PassengerCar(string name, string color, float maximumSpeed, 
+            Engine engine, Chassis chassis, Transmission transmission)
+            : base(name, engine, chassis, transmission)
         {
             Color = color;
             MaximumSpeed = maximumSpeed;

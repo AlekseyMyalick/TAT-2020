@@ -154,7 +154,7 @@ namespace CarPark
         public string GetInfo()
         {
             return $"ENGINE \n" +
-                $"Power: {_power} horsepower \n" +
+                $"Power: {Power} horsepower \n" +
                 $"Capacity: {_capacity} centimeters cubic \n" +
                 $"Type: {_type} \n" +
                 $"Serial number: {_serialNumber} \n";

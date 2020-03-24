@@ -14,7 +14,8 @@ namespace CarPark
         /// <summary>
         /// constructor initializes class elements
         /// </summary>
-        public Scooter(string name, float maximumSpeed, int numberOfSeats,Engine engine, Chassis chassis, Transmission transmission)
+        public Scooter(string name, float maximumSpeed, int numberOfSeats,Engine engine, 
+            Chassis chassis, Transmission transmission)
             : base(name, engine, chassis, transmission)
         {
             MaximumSpeed = maximumSpeed;

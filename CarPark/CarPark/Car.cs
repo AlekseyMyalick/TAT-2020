@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CarPark
 {
-    public class Car
+    public abstract class Car
     {
         private string _name;
         private Engine _engine;

@@ -15,7 +15,7 @@ namespace CarPark
         /// constructor initializes class elements
         /// </summary>
         public Bus(string name, int numberOfSeats, int numberOfDoors,
-            Engine engine, Chassis chassis, Transmission transmission)
+            Engine engine, Chassis chassis, Transmission transmission) 
             : base(name, engine, chassis, transmission)
         {
             NumberOfSeats = numberOfSeats;
