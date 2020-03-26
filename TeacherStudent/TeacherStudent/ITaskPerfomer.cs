@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace TeacherStudent
 {
+    /// <summary>
+    /// interface defines a methode
+    /// </summary>
     interface ITaskPerfomer
     {
         string DoTask();

@@ -14,12 +14,18 @@ namespace TeacherStudent
         public delegate void StudentTask(Student student, string str);
         public event StudentTask Notify;
 
+        /// <summary>
+        /// constructor initializes class elements
+        /// </summary>
         public Student(string firstName, string lastName)
         {
             LastName = lastName;
             FirstName = firstName;
         }
 
+        /// <summary>
+        /// method FirsName accepts and returns values
+        /// </summary>
         public string FirstName
         {
             get
@@ -33,6 +39,9 @@ namespace TeacherStudent
             }
         }
 
+        /// <summary>
+        /// method LastName accepts and returns values
+        /// </summary>
         public string LastName
         {
             get
@@ -46,25 +55,13 @@ namespace TeacherStudent
             }
         }
 
+        /// <summary>
+        /// method DoTask check event and return random line
+        /// </summary>
         public string DoTask()
         {
-            Notify?.Invoke(this, GeneratesRandomString());
-            return GeneratesRandomString();
-        }
-
-        public static Random random = new Random((int)DateTime.Now.Ticks);
-
-        public string GeneratesRandomString() {
-            int size = random.Next(1,15);
-            string answer = String.Empty;
-
-            for(int i = 0; i < size; i++)
-            {
-                int value = random.Next(32, 127);
-                answer += (char)value;
-            }
-
-            return answer;
+            Notify?.Invoke(this, Randomizer.GeneratesRandomString());
+            return Randomizer.GeneratesRandomString();
         }
     }
 }

@@ -8,6 +8,9 @@ namespace TeacherStudent
 {
     public class Teacher
     {
+        /// <summary>
+        /// constructor initializes class elements
+        /// </summary>
         public List<string> TaskResults { get; private set; }
 
         public Teacher()
@@ -15,6 +18,9 @@ namespace TeacherStudent
             TaskResults = new List<string>();
         }
 
+        /// <summary>
+        /// method AcceptTheWork calls method PrintAllResults if list's size equals 10 
+        /// </summary>
         public void AcceptTheWork(Student student, string answer)
         {
             TaskResults.Add(student.FirstName + " " + student.LastName + " " + answer);
@@ -25,16 +31,22 @@ namespace TeacherStudent
             }
         }
 
+        /// <summary>
+        /// in method StudenDone event handler is added
+        /// </summary>
         public void StudentDone(Student student)
         {
             student.Notify += AcceptTheWork;
         }
 
+        /// <summary>
+        /// method PrintAllResults print data from list
+        /// </summary>
         public void PrintAllResults()
         {
-            foreach(var str in TaskResults)
+            foreach(var line in TaskResults)
             {
-                Console.WriteLine(str);
+                Console.WriteLine(line);
             }
         }
     }
