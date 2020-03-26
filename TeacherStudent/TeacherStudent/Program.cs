@@ -12,27 +12,48 @@ namespace TeacherStudent
         {
             Teacher teacher = new Teacher();
             Student student1 = new Student("Hleb", "Kokorev");
-            student1.DoTask();
+
             Student student2 = new Student("Aleksey", "Grushevich");
-            student2.DoTask();
+
             Student student3 = new Student("ksenia", "Tarasevich");
-            student3.DoTask();
+
             Student student4 = new Student("Aleksey", "Myalick");
-            student4.DoTask();
+
             Student student5 = new Student("Anton", "Migel");
-            student5.DoTask();
+
             Student student6 = new Student("kirill", "Babey");
-            student6.DoTask();
+
             Student student7 = new Student("Viktoria", "Sivenkova");
-            student7.DoTask();
+           
             Student student8 = new Student("Aleksander", "Koralev");
-            student8.DoTask();
+          
             Student student9 = new Student("Kirill", "Skhlyrevsky");
-            student9.DoTask();
+            
             Student student10 = new Student("Pavel", "Lastovski");
+            
+
+            teacher.StudentDone(student1);
+            teacher.StudentDone(student2);
+            teacher.StudentDone(student3);
+            teacher.StudentDone(student4);
+            teacher.StudentDone(student5);
+            teacher.StudentDone(student6);
+            teacher.StudentDone(student7);
+            teacher.StudentDone(student8);
+            teacher.StudentDone(student9);
+            teacher.StudentDone(student10);
+
+            student1.DoTask();
+            student2.DoTask();
+            student3.DoTask();
+            student4.DoTask();
+            student5.DoTask();
+            student6.DoTask();
+            student7.DoTask();
+            student8.DoTask();
+            student9.DoTask();
             student10.DoTask();
 
-            Student.
         }
     }
 }

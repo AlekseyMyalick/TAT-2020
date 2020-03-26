@@ -11,7 +11,7 @@ namespace TeacherStudent
         private string _firstName;
         private string _lastName;
 
-        public delegate string StudentTask();
+        public delegate void StudentTask(Student student, string str);
         public event StudentTask Notify;
 
         public Student(string firstName, string lastName)
@@ -48,13 +48,13 @@ namespace TeacherStudent
 
         public string DoTask()
         {
-            Notify();
+            Notify?.Invoke(this, GeneratesRandomString());
             return GeneratesRandomString();
         }
 
+        public static Random random = new Random((int)DateTime.Now.Ticks);
 
         public string GeneratesRandomString() {
-            Random random = new Random();
             int size = random.Next(1,15);
             string answer = String.Empty;
 
