@@ -6,34 +6,22 @@ using System.Threading.Tasks;
 
 namespace DEV_1._4
 {
-    class Bird:IFlyable
+    class Bird:Flying, IFlyable
     {
-        Coordinate _currentPosition;
-
-        public Bird(Coordinate currentPosition)
+        public Bird(Coordinate currentPosition) : base(currentPosition)
         {
-            CurrentPosition = currentPosition;
         }
 
-        public Coordinate CurrentPosition
+        public void FlyTo(Coordinate newCoordinate)
         {
-            get
-            {
-                return _currentPosition;
-            }
-            set
-            {
-                _currentPosition = value;
-            }
-        }
-
-        public Coordinate FlyTo()
-        {
-
+            CurrentPosition = newCoordinate;
         } 
 
         public Coordinate GetFlyTime()
         {
+            //FlyTo();
+            /// ??????
+            CurrentPosition.DistanceBetweenPoints(CurrentPosition);
 
         }
     }

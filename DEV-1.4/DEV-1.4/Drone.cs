@@ -6,30 +6,15 @@ using System.Threading.Tasks;
 
 namespace DEV_1._4
 {
-    class Drone:IFlyable
+    class Drone:Flying,IFlyable
     {
-        Coordinate _currentPosition;
-
-        public Drone(Coordinate currentPosition)
+        public Drone(Coordinate currentPosition):base(currentPosition)
         {
-            CurrentPosition = currentPosition;
         }
 
-        public Coordinate CurrentPosition
+        public void FlyTo(Coordinate newCoordinate)
         {
-            get
-            {
-                return _currentPosition;
-            }
-            set
-            {
-                _currentPosition = value;
-            }
-        }
-
-        public Coordinate FlyTo()
-        {
-
+            CurrentPosition = newCoordinate;
         }
 
         public Coordinate GetFlyTime()
