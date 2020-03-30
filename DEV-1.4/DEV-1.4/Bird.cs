@@ -33,7 +33,8 @@ namespace DEV_1._4
         /// </summary>
         public DateTime GetFlyTime(Coordinate newCoordinate)
         {
-            float distance = CurrentPosition.DistanceBetweenPoints(newCoordinate);            
+            float distance = CurrentPosition.DistanceBetweenPoints(newCoordinate);
+            CheckDistance(distance);
             float flyTime = distance / speed;
             DateTime time = DateTime.Now;
             return time.AddHours((double)flyTime);

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DEV_1._4
 {
-    class Drone:Flying,IFlyable
+    public class Drone:Flying,IFlyable
     {
         public const double _speed = 15;
         public const double _stopPeriod = 1 / 6;
@@ -35,6 +35,7 @@ namespace DEV_1._4
         public DateTime GetFlyTime(Coordinate newCoordinate)
         {
             float distance = CurrentPosition.DistanceBetweenPoints(newCoordinate);
+            CheckDistance(distance);
             double stopDistance = _speed * _stopPeriod;
             int NumberOfStops = (int)(distance / stopDistance);
             double timeForTrip = distance / _speed + NumberOfStops * _stopTime;
