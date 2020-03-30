@@ -10,12 +10,17 @@ namespace DEV_1._4
     {
         private Coordinate _currentPosition;
 
-
+        /// <summary>
+        /// constructor initializes class elements
+        /// </summary>
         public Flying(Coordinate currentPosition)
         {
             CurrentPosition = currentPosition;
         }
 
+        /// <summary>
+        /// method Coordinate accepts and returns values
+        /// </summary>
         public Coordinate CurrentPosition
         {
             get

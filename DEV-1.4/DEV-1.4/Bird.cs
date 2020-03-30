@@ -10,18 +10,27 @@ namespace DEV_1._4
     {
         int speed = Randomizer.GeneratesRandomSpeed();
 
+        /// <summary>
+        /// constructor initializes class elements
+        /// </summary>
         public Bird(Coordinate currentPosition) : base(currentPosition)
         {
         }
-        
+
+        /// <summary>
+        /// method FlyTo checks to fly or not
+        /// </summary>
         public bool FlyTo(Coordinate newCoordinate)
         {
             CheckSpeed(speed);
             float distance = CurrentPosition.DistanceBetweenPoints(newCoordinate);
             CheckDistance(distance);
             return true;
-        } 
+        }
 
+        /// <summary>
+        /// method GetFlyTime returns flight time
+        /// </summary>
         public DateTime GetFlyTime(Coordinate newCoordinate)
         {
             float distance = CurrentPosition.DistanceBetweenPoints(newCoordinate);            
@@ -30,6 +39,9 @@ namespace DEV_1._4
             return time.AddHours((double)flyTime);
         }
 
+        /// <summary>
+        /// method CheckSpeed checks speed to zero
+        /// </summary>
         void CheckSpeed(int speed)
         {
             if (speed == 0)
@@ -39,6 +51,9 @@ namespace DEV_1._4
 
         }
 
+        /// <summary>
+        /// method CheckDistance checks for maximum distance (1500)
+        /// </summary>
         void CheckDistance(float distance)
         {
             if (distance > 1500)
