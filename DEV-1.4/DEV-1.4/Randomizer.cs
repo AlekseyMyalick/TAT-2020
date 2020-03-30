@@ -10,7 +10,7 @@ namespace DEV_1._4
     {
         public static Random random = new Random((int)DateTime.Now.Ticks);
 
-        public static int GeneratesRandomNumber()
+        public static int GeneratesRandomSpeed()
         {
             int number = random.Next(1, 20);
             return number;

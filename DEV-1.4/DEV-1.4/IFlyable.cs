@@ -8,7 +8,7 @@ namespace DEV_1._4
 {
     interface IFlyable
     {
-        void FlyTo(Coordinate newCoordinate);
-        Coordinate GetFlyTime(Coordinate newCoordinate);
+        bool FlyTo(Coordinate newCoordinate);
+        DateTime GetFlyTime(Coordinate newCoordinate);
     }
 }

@@ -12,14 +12,17 @@ namespace DEV_1._4
         {
         }
 
-        public void FlyTo(Coordinate newCoordinate)
+        public bool FlyTo(Coordinate newCoordinate)
         {
             CurrentPosition = newCoordinate;
+            return true;
         }
 
-        public Coordinate GetFlyTime()
+        public DateTime GetFlyTime(Coordinate newCoordinate)
         {
-
+            float distance = CurrentPosition.DistanceBetweenPoints(newCoordinate);
+            DateTime time = new DateTime();
+            return time;
         } 
     }
 }

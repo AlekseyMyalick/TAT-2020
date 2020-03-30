@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace DEV_1._4
 {
-    class Flying
+    public class Flying
     {
-        Coordinate _currentPosition;
+        private Coordinate _currentPosition;
+
 
         public Flying(Coordinate currentPosition)
         {

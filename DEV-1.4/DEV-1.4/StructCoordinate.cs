@@ -26,17 +26,9 @@ namespace DEV_1._4
 
         public float DistanceBetweenPoints(Coordinate coordinate)
         {
-            if (coordinate is Coordinate)
-            {
-                float distance = (float)Math.Sqrt(Math.Pow((_x - coordinate._x), 2) 
-                    + Math.Pow((_y - coordinate._y), 2) 
-                    + Math.Pow((_z - coordinate._z), 2));
-                return distance;
-            }
-            else
-            {
-                return 0;
-            }
+            return (float)Math.Sqrt(Math.Pow((coordinate._x - _x), 2)
+            + Math.Pow((coordinate._y - _y), 2)
+            + Math.Pow((coordinate._z - _z), 2));
         }
     }
 }
