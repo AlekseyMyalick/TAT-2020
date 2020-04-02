@@ -89,6 +89,7 @@ namespace CarPark
             }
         }
 
+
         /// <summary>
         /// method CheckName throws an error if the character does not meet the standards
         /// </summary>
@@ -122,5 +123,7 @@ namespace CarPark
                 $"{_chassis.GetInfo()}\n" +
                 $"{_transmission.GetInfo()}\n";
         }
+
+        
     }
 }

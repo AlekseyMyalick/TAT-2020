@@ -104,6 +104,28 @@ namespace CarPark
         }
 
         /// <summary>
+        /// method AutomaticTransmission returns line
+        /// </summary>
+        public static string AutomaticTransmission
+        {
+            get
+            {
+                return "automatic transmission";
+            }
+        }
+
+        /// <summary>
+        /// method ManualTransmission returns line
+        /// </summary>
+        public static string ManualTransmission
+        {
+            get
+            {
+                return "manual transmission";
+            }
+        }
+
+        /// <summary>
         /// method GetInfo returns a string with data
         /// </summary>
         public string GetInfo()

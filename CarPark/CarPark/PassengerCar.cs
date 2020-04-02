@@ -22,6 +22,7 @@ namespace CarPark
             MaximumSpeed = maximumSpeed;
         }
 
+        
         /// <summary>
         /// method Color accepts and returns values
         /// </summary>

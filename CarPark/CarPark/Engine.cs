@@ -102,6 +102,17 @@ namespace CarPark
         }
 
         /// <summary>
+        /// method Petrol returns line
+        /// </summary>
+        public static string Petrol
+        {
+            get
+            {
+                return "petrol";
+            }
+        }
+
+        /// <summary>
         /// method Diesel returns line
         /// </summary>
         public static string Diesel
