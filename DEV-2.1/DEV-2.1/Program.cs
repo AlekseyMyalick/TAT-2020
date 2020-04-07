@@ -7,6 +7,7 @@ namespace DEV_2._1
         static void Main(string[] args)
         {
             CarData car = new CarData();
+            car.WriteData();
         }
     }
 }

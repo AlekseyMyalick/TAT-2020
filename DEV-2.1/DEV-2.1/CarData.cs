@@ -15,14 +15,7 @@ namespace DEV_2._1
 
         public CarData()
         {
-            Console.Write("Make: ");
-            Make = Console.ReadLine();
-            Console.Write("Model: ");
-            Model = Console.ReadLine();
-            Console.Write("Quantity: ");
-            Quantity = Console.ReadLine();
-            Console.Write("Cost one: ");
-            CostOne = Console.ReadLine();
+            ReadData();
         }
 
         public string Make
@@ -75,6 +68,30 @@ namespace DEV_2._1
             {
                 _costOne = value;
             }
+        }
+
+        public void ReadData()
+        {
+            Console.Write("Make: ");
+            Make = Console.ReadLine();
+            Console.Write("Model: ");
+            Model = Console.ReadLine();
+            Console.Write("Quantity: ");
+            Quantity = Console.ReadLine();
+            Console.Write("Cost one: ");
+            CostOne = Console.ReadLine();
+        }
+
+        public void WriteData()
+        {
+            ExcelTable excelTable = new ExcelTable(@"C:\Users\user\source\TAT-2020\DEV-2.1\DEV-2.1\bin\Debug\test.xlsx", 1);
+            int count = excelTable.NumberOfNonEmptyLines();
+            excelTable.WriteToCell(count, 1, Make);
+            excelTable.WriteToCell(count, 2, Model);
+            excelTable.WriteToCell(count, 3, Quantity);
+            excelTable.WriteToCell(count, 4, CostOne);
+            excelTable.Save();
+            excelTable.Close();
         }
     }
 }
