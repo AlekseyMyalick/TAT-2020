@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DEV_2._1
 {
-    class ReadingFromConsole
+    class Singleton
     {
     }
 }
