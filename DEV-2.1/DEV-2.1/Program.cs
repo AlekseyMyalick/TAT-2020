@@ -6,8 +6,12 @@ namespace DEV_2._1
     {
         static void Main(string[] args)
         {
-            CarData car = new CarData();
-            car.WriteData();
+            Invoker invoker = new Invoker();
+            CarData carData = new CarData();
+            //CountAllCommand countAllCommand = new CountAllCommand(carData);
+            AveragePriceCommand averagePriceCommand = new AveragePriceCommand(carData);
+            invoker.SetCommand(averagePriceCommand);
+            invoker.Run();
         }
     }
 }

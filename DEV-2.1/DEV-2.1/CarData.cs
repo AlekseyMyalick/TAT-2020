@@ -1,21 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DEV_2._1
 {
-    public class CarData
+    class CarData
     {
         private string _make;
         private string _model;
         private string _quantity;
         private string _costOne;
 
+
         public CarData()
         {
             ReadData();
+            WriteData();
         }
 
         public string Make
@@ -84,14 +82,58 @@ namespace DEV_2._1
 
         public void WriteData()
         {
-            ExcelTable excelTable = new ExcelTable(@"C:\Users\user\source\TAT-2020\DEV-2.1\DEV-2.1\bin\Debug\test.xlsx", 1);
+            excelTable = ExcelTable.GetInstance(@"C:\Users\user\source\TAT-2020\DEV-2.1\DEV-2.1\bin\Debug\test.xlsx", 1);
+            //ExcelTable excelTable = new ExcelTable(@"C:\Users\user\source\TAT-2020\DEV-2.1\DEV-2.1\bin\Debug\test.xlsx", 1);
             int count = excelTable.NumberOfNonEmptyLines();
             excelTable.WriteToCell(count, 1, Make);
             excelTable.WriteToCell(count, 2, Model);
             excelTable.WriteToCell(count, 3, Quantity);
             excelTable.WriteToCell(count, 4, CostOne);
             excelTable.Save();
-            excelTable.Close();
+            //excelTable.Close();
+        }
+
+        public ExcelTable excelTable { get; set; }
+
+        public int CountTypes()
+        {
+            return 1;
+        }
+
+        public int CountAll()
+        {
+            excelTable = ExcelTable.GetInstance(@"C:\Users\user\source\TAT-2020\DEV-2.1\DEV-2.1\bin\Debug\test.xlsx", 1);
+            int countLines = excelTable.NumberOfNonEmptyLines();
+            int countCars = 0;
+            for (int i = 1; i < countLines; i++)
+            {
+                countCars += Convert.ToInt32(excelTable.ReadCell(i, 3));
+            }
+            Console.WriteLine(countCars);
+            return countCars;
+        }
+
+        public double AveragePrice()
+        {
+            excelTable = ExcelTable.GetInstance(@"C:\Users\user\source\TAT-2020\DEV-2.1\DEV-2.1\bin\Debug\test.xlsx", 1);
+            int countLines = excelTable.NumberOfNonEmptyLines();
+            Double Allprice = 0;
+            for (int i = 1; i < countLines; i++)
+            {
+                Allprice += Convert.ToDouble(excelTable.ReadCell(i, 4));
+            }
+            Console.WriteLine(Allprice/(countLines-1));
+            return Allprice / (countLines - 1);
+        }
+
+        public float AveragePriceType()
+        {
+            return 1;
+        }
+
+        public void Exit()
+        {
+
         }
     }
 }

@@ -10,8 +10,9 @@ namespace DEV_2._1
         _Application excel = new Excel.Application();
         Workbook workbook;
         Worksheet worksheet;
+        private static ExcelTable _instance;
 
-        public ExcelTable(string path, int Sheet)
+        private ExcelTable(string path, int Sheet)
         {
             Path = path;
             workbook = excel.Workbooks.Open(path);
@@ -36,6 +37,19 @@ namespace DEV_2._1
             worksheet.Cells[i, j] = line;
         }
 
+        public string ReadCell(int i, int j)
+        {
+            if(worksheet.Cells[i,j] != null)
+            {
+                return Convert.ToString(worksheet.Cells[i, j].Value2);
+            }
+
+            else
+            {
+                return "0";
+            }
+        }
+
         public void Save()
         {
             workbook.Save();
@@ -54,7 +68,7 @@ namespace DEV_2._1
         public int NumberOfNonEmptyLines()
         {
             int i = 1;
-            int count = 0;
+            int count = 1;
             while (worksheet.Cells[i,1].Value2 != null)
             {
                 i++;
@@ -63,5 +77,16 @@ namespace DEV_2._1
 
             return count;
         }
+
+        public static ExcelTable GetInstance(string path, int Sheet)
+        {
+            if (_instance == null)
+            {
+                _instance = new ExcelTable(path, Sheet);
+
+            }
+            return _instance;
+        }
+
     }
 }
