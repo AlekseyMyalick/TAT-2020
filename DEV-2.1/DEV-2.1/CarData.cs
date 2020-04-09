@@ -1,90 +1,97 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Xml.Linq;
 
 namespace DEV_2._1
 {
     class CarData
     {
-        public static CarData instance;
-        public ExcelTable excelTable { get; set; }
+        static XDocument _xCarData;
+        public static CarData _instance;
+        public const string PATH = @"C://Users\user\source\TAT-2020\DEV-2.1\DEV-2.1\bin\Debug\cars.xml";
 
         private CarData()
         {
-            excelTable = new ExcelTable(@"C:\Users\user\source\TAT-2020\DEV-2.1\DEV-2.1\bin\Debug\test.xlsx", 1);
-        }
-
-        public static void ReadData(Car car)
-        {
-            Console.Write("Make: ");
-            car.Make = Console.ReadLine();
-            Console.Write("Model: ");
-            car.Model = Console.ReadLine();
-            Console.Write("Quantity: ");
-            car.Quantity = Console.ReadLine();
-            Console.Write("Cost one: ");
-            car.CostOne = Console.ReadLine();
-        }
-
-        public void WriteData(Car car)
-        {           
-            int count = excelTable.NumberOfNonEmptyLines();
-            excelTable.WriteToCell(count, 1, car.Make);
-            excelTable.WriteToCell(count, 2, car.Model);
-            excelTable.WriteToCell(count, 3, car.Quantity);
-            excelTable.WriteToCell(count, 4, car.CostOne);
-            excelTable.Save();
-            //excelTable.Close();
+            _xCarData = XDocument.Load(PATH);
         }
 
         public static CarData GetInstance()
         {
-            if (instance == null)
+            if (_instance == null)
             {
-                instance = new CarData();
+                _instance = new CarData();
 
             }
-            return instance;
+            return _instance;
         }
 
         public int CountTypes()
         {
-           
-            excelTable.Close();
-
-            return 1;
+            var totalTypesAutos = 1;
+            XElement previuosElement = _xCarData.Root.Element("Autos");
+            foreach (XElement element in _xCarData.Root.Elements())
+            {
+                if (previuosElement.Attribute("name").Value != element.Attribute("name").Value)
+                {
+                    totalTypesAutos++;
+                }
+                previuosElement = element;
+            }
+            Console.WriteLine($"total number of cars:{totalTypesAutos}");
+            return totalTypesAutos;
         }
 
         public int CountAll()
         {
-            int countLines = excelTable.NumberOfNonEmptyLines();
-            int countCars = 0;
-            for (int i = 1; i < countLines; i++)
+            var totalCountAutos = 0;
+            foreach (XElement element in _xCarData.Root.Elements())
             {
-                countCars += Convert.ToInt32(excelTable.ReadCell(i, 3));
+                totalCountAutos += (int)element.Element("count");
             }
-            Console.WriteLine(countCars);
-            return countCars;
+            Console.WriteLine($"total number of cars:{totalCountAutos}");
+            return totalCountAutos;
         }
 
         public double AveragePrice()
         {
-            int countLines = excelTable.NumberOfNonEmptyLines();
-            double Allprice = 0;
-            for (int i = 1; i < countLines; i++)
+            double averagePrice = 0;
+            double totalSum = 0;
+            double countAutos = 0;
+            foreach (XElement element in _xCarData.Root.Elements())
             {
-                Allprice += Convert.ToDouble(excelTable.ReadCell(i, 4));
+                totalSum += (double)element.Element("cost");
+                countAutos++;
             }
-            Console.WriteLine(Allprice/(countLines-1));
-            return Allprice / (countLines - 1);
+            averagePrice = totalSum / countAutos;
+            Console.WriteLine($"average price is: {averagePrice}");
+            return averagePrice;
         }
 
-        public float AveragePriceType()
+        public double AveragePriceType()
         {
-            return 1;
+            double totalSum = 0;
+            double averageTypePrice = 0;
+            double countAutos = 0;
+            string inputName = Console.ReadLine();
+
+            foreach (XElement element in _xCarData.Root.Elements())
+            {
+                if (element.Attribute("name").Value == inputName)
+                {
+                    totalSum += (double)element.Element("cost");
+                    countAutos++;
+                }
+            }
+
+            averageTypePrice = totalSum / countAutos;
+            Console.WriteLine($"average type price is: {averageTypePrice}");
+            return averageTypePrice;
         }
 
         public void Exit()
         {
-
+            Environment.Exit(0);
         }
     }
 }

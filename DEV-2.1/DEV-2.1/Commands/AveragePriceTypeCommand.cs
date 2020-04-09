@@ -4,9 +4,16 @@ namespace DEV_2._1
 {
     class AveragePriceTypeCommand : ICommand
     {
+        CarData _carData;
+
+        public AveragePriceTypeCommand(CarData carData)
+        {
+            _carData = carData;
+        }
+
         public void Execute()
         {
-            CarData.GetInstance().AveragePriceType();
+            _carData.AveragePriceType();
         }
     }
 }

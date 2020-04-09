@@ -10,13 +10,16 @@ namespace DEV_2._1
     {
         private string _make;
         private string _model;
-        private string _quantity;
-        private string _costOne;
+        private int _quantity;
+        private int _costOne;
 
 
-        public Car()
+        public Car(string make, string model, int quantity, int costOne)
         {
-            
+            Make = make;
+            Model = model;
+            Quantity = quantity;
+            CostOne = costOne;
         }
 
         public string Make
@@ -45,7 +48,7 @@ namespace DEV_2._1
             }
         }
 
-        public string Quantity
+        public int Quantity
         {
             get
             {
@@ -54,11 +57,11 @@ namespace DEV_2._1
 
             set
             {
-                _quantity = value;
+                CheckQuantity(value);
             }
         }
 
-        public string CostOne
+        public int CostOne
         {
             get
             {
@@ -67,7 +70,45 @@ namespace DEV_2._1
 
             set
             {
+                CheclCostOne(value);
+            }
+        }
+
+        public void CheckQuantity(int value)
+        {
+            try
+            {
+                if (value <= 0)
+                {
+                    throw new ArgumentException("Incorrect quantity!");
+                }
                 _costOne = value;
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("Enter coorect car quantity: ");
+                Int32.TryParse(Console.ReadLine(), out int quantity);
+                Quantity = quantity;
+            }
+        }
+
+        public void CheclCostOne(int value)
+        {
+            try
+            {
+                if (value <= 0)
+                {
+                    throw new ArgumentException("Incorrect price!");
+                }
+                _costOne = value;
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("Enter coorect car price: ");
+                Int32.TryParse(Console.ReadLine(), out int costOne);
+                CostOne = costOne;
             }
         }
     }

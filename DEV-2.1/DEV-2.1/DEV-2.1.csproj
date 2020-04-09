@@ -43,15 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AveragePriceCommand.cs" />
-    <Compile Include="AveragePriceTypeCommand.cs" />
+    <Compile Include="Commands\AveragePriceCommand.cs" />
+    <Compile Include="Commands\AveragePriceTypeCommand.cs" />
     <Compile Include="Car.cs" />
     <Compile Include="CarData.cs" />
-    <Compile Include="CountAllCommand.cs" />
-    <Compile Include="CountTypesCommand.cs" />
-    <Compile Include="ExcelTable.cs" />
-    <Compile Include="ExitCommand.cs" />
-    <Compile Include="ICommand.cs" />
+    <Compile Include="Commands\CountAllCommand.cs" />
+    <Compile Include="Commands\CountTypesCommand.cs" />
+    <Compile Include="Commands\ExitCommand.cs" />
+    <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Invoker.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

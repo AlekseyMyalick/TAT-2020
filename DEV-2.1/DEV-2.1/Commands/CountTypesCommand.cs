@@ -4,9 +4,16 @@ namespace DEV_2._1
 {
     class CountTypesCommand : ICommand
     {
+        CarData _carData;
+
+        public CountTypesCommand(CarData carData)
+        {
+            _carData = carData;
+        }
+
         public void Execute()
         {
-            CarData.GetInstance().CountTypes();
+            _carData.CountTypes();
         }
     }
 }
