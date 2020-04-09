@@ -12,7 +12,7 @@ namespace DEV_2._1
         Worksheet worksheet;
         private static ExcelTable _instance;
 
-        private ExcelTable(string path, int Sheet)
+        public ExcelTable(string path, int Sheet)
         {
             Path = path;
             workbook = excel.Workbooks.Open(path);
@@ -78,15 +78,7 @@ namespace DEV_2._1
             return count;
         }
 
-        public static ExcelTable GetInstance(string path, int Sheet)
-        {
-            if (_instance == null)
-            {
-                _instance = new ExcelTable(path, Sheet);
-
-            }
-            return _instance;
-        }
+        
 
     }
 }

@@ -15,9 +15,5 @@ namespace DEV_2._1
         {
             _command.Execute();
         }
-        public void Cancel()
-        {
-            _command.Undo();
-        }
     }
 }

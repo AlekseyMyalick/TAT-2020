@@ -6,11 +6,11 @@ namespace DEV_2._1
     {
         static void Main(string[] args)
         {
-            Invoker invoker = new Invoker();
-            CarData carData = new CarData();
+            Invoker invoker = new Invoker();           
             //CountAllCommand countAllCommand = new CountAllCommand(carData);
-            AveragePriceCommand averagePriceCommand = new AveragePriceCommand(carData);
-            invoker.SetCommand(averagePriceCommand);
+            //AveragePriceCommand averagePriceCommand = new AveragePriceCommand(carData);
+            CountTypesCommand countTypesCommand = new CountTypesCommand();
+            invoker.SetCommand(countTypesCommand);
             invoker.Run();
         }
     }

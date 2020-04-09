@@ -4,105 +4,57 @@ namespace DEV_2._1
 {
     class CarData
     {
-        private string _make;
-        private string _model;
-        private string _quantity;
-        private string _costOne;
+        public static CarData instance;
+        public ExcelTable excelTable { get; set; }
 
-
-        public CarData()
+        private CarData()
         {
-            ReadData();
-            WriteData();
+            excelTable = new ExcelTable(@"C:\Users\user\source\TAT-2020\DEV-2.1\DEV-2.1\bin\Debug\test.xlsx", 1);
         }
 
-        public string Make
-        {
-            get
-            {
-                return _make;
-            }
-
-            set
-            {
-                _make = value;
-            }
-        }
-
-        public string Model
-        {
-            get
-            {
-                return _model;
-            }
-
-            set
-            {
-                _model = value;
-            }
-        }
-
-        public string Quantity
-        {
-            get
-            {
-                return _quantity;
-            }
-
-            set
-            {
-                _quantity = value;
-            }
-        }
-
-        public string CostOne
-        {
-            get
-            {
-                return _costOne;
-            }
-
-            set
-            {
-                _costOne = value;
-            }
-        }
-
-        public void ReadData()
+        public void ReadData(Car car)
         {
             Console.Write("Make: ");
-            Make = Console.ReadLine();
+            car.Make = Console.ReadLine();
             Console.Write("Model: ");
-            Model = Console.ReadLine();
+            car.Model = Console.ReadLine();
             Console.Write("Quantity: ");
-            Quantity = Console.ReadLine();
+            car.Quantity = Console.ReadLine();
             Console.Write("Cost one: ");
-            CostOne = Console.ReadLine();
+            car.CostOne = Console.ReadLine();
         }
 
-        public void WriteData()
-        {
-            excelTable = ExcelTable.GetInstance(@"C:\Users\user\source\TAT-2020\DEV-2.1\DEV-2.1\bin\Debug\test.xlsx", 1);
-            //ExcelTable excelTable = new ExcelTable(@"C:\Users\user\source\TAT-2020\DEV-2.1\DEV-2.1\bin\Debug\test.xlsx", 1);
+        public void WriteData(Car car)
+        {           
             int count = excelTable.NumberOfNonEmptyLines();
-            excelTable.WriteToCell(count, 1, Make);
-            excelTable.WriteToCell(count, 2, Model);
-            excelTable.WriteToCell(count, 3, Quantity);
-            excelTable.WriteToCell(count, 4, CostOne);
+            excelTable.WriteToCell(count, 1, car.Make);
+            excelTable.WriteToCell(count, 2, car.Model);
+            excelTable.WriteToCell(count, 3, car.Quantity);
+            excelTable.WriteToCell(count, 4, car.CostOne);
             excelTable.Save();
             //excelTable.Close();
         }
 
-        public ExcelTable excelTable { get; set; }
+        public static CarData GetInstance()
+        {
+            if (instance == null)
+            {
+                instance = new CarData();
+
+            }
+            return instance;
+        }
 
         public int CountTypes()
         {
+           
+            excelTable.Close();
+
             return 1;
         }
 
         public int CountAll()
         {
-            excelTable = ExcelTable.GetInstance(@"C:\Users\user\source\TAT-2020\DEV-2.1\DEV-2.1\bin\Debug\test.xlsx", 1);
             int countLines = excelTable.NumberOfNonEmptyLines();
             int countCars = 0;
             for (int i = 1; i < countLines; i++)
@@ -115,9 +67,8 @@ namespace DEV_2._1
 
         public double AveragePrice()
         {
-            excelTable = ExcelTable.GetInstance(@"C:\Users\user\source\TAT-2020\DEV-2.1\DEV-2.1\bin\Debug\test.xlsx", 1);
             int countLines = excelTable.NumberOfNonEmptyLines();
-            Double Allprice = 0;
+            double Allprice = 0;
             for (int i = 1; i < countLines; i++)
             {
                 Allprice += Convert.ToDouble(excelTable.ReadCell(i, 4));
