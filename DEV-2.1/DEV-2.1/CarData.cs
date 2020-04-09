@@ -12,7 +12,7 @@ namespace DEV_2._1
             excelTable = new ExcelTable(@"C:\Users\user\source\TAT-2020\DEV-2.1\DEV-2.1\bin\Debug\test.xlsx", 1);
         }
 
-        public void ReadData(Car car)
+        public static void ReadData(Car car)
         {
             Console.Write("Make: ");
             car.Make = Console.ReadLine();
