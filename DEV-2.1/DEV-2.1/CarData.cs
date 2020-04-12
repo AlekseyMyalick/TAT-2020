@@ -28,65 +28,40 @@ namespace DEV_2._1
 
         public int CountTypes()
         {
-            var totalTypesAutos = 1;
-            XElement previuosElement = _xCarData.Root.Element("Autos");
-            foreach (XElement element in _xCarData.Root.Elements())
-            {
-                if (previuosElement.Attribute("name").Value != element.Attribute("name").Value)
-                {
-                    totalTypesAutos++;
-                }
-                previuosElement = element;
-            }
-            Console.WriteLine($"total number of cars:{totalTypesAutos}");
-            return totalTypesAutos;
+            Console.WriteLine($"total number of cars:{_xCarData.Root.Elements().Select(element => element.Attribute("name").Value).Distinct().Count()}");
+            return _xCarData.Root.Elements().Select(element => element.Attribute("name").Value)
+                .Distinct().Count();
+
         }
 
         public int CountAll()
         {
-            var totalCountAutos = 0;
-            foreach (XElement element in _xCarData.Root.Elements())
-            {
-                totalCountAutos += (int)element.Element("count");
-            }
-            Console.WriteLine($"total number of cars:{totalCountAutos}");
-            return totalCountAutos;
+            Console.WriteLine($"total number of cars:{_xCarData.Root.Elements().Select(element => (int)element.Element("count")).Sum()}");
+            return _xCarData.Root.Elements().Select(element => (int)element.Element("count")).Sum();
         }
 
         public double AveragePrice()
         {
-            double averagePrice = 0;
-            double totalSum = 0;
-            double countAutos = 0;
-            foreach (XElement element in _xCarData.Root.Elements())
-            {
-                totalSum += (double)element.Element("cost");
-                countAutos++;
-            }
-            averagePrice = totalSum / countAutos;
-            Console.WriteLine($"average price is: {averagePrice}");
-            return averagePrice;
+            Console.WriteLine($"average price is: {_xCarData.Root.Elements().Select(element => (int)element.Element("cost")).Average()}");
+            return _xCarData.Root.Elements().Select(element => (int)element.Element("cost")).Average();
+
         }
 
         public double AveragePriceType()
         {
-            double totalSum = 0;
-            double averageTypePrice = 0;
-            double countAutos = 0;
+            Console.Write("Enter brand name: ");
             string inputName = Console.ReadLine();
 
-            foreach (XElement element in _xCarData.Root.Elements())
+            if (_xCarData.Root.Elements().Any(elememt =>
+            elememt.Attribute("name").Value.ToLower() == inputName.ToLower()))
             {
-                if (element.Attribute("name").Value == inputName)
-                {
-                    totalSum += (double)element.Element("cost");
-                    countAutos++;
-                }
+                return _xCarData.Root.Elements().Where(elememt =>
+                   elememt.Attribute("name").Value.ToLower() == inputName.ToLower())
+                    .Select(element => (int)element.Element("cost")).Average();
+
             }
 
-            averageTypePrice = totalSum / countAutos;
-            Console.WriteLine($"average type price is: {averageTypePrice}");
-            return averageTypePrice;
+            throw new ArgumentException("There's no cars with such brand");
         }
 
         public void Exit()
