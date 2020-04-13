@@ -13,7 +13,7 @@ namespace DEV_2._1
 
         public void Execute()
         {
-            _carData.AveragePriceType();
+            Console.WriteLine($"average price of type is: {_carData.AveragePriceType()}");
         }
     }
 }

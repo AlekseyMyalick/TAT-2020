@@ -6,21 +6,10 @@ namespace DEV_2._1
     {
         static void Main(string[] args)
         {
-            try
-            {
-                CarData carData = CarData.GetInstance();
-                Invoker invoker = new Invoker();
-                invoker.SetCommand(new CountTypesCommand(carData));
-                invoker.SetCommand(new CountAllCommand(carData));
-                invoker.SetCommand(new AveragePriceCommand(carData));
-                invoker.SetCommand(new AveragePriceTypeCommand(carData));
-                invoker.Run();
-            }
-            catch (ArgumentNullException e)
-            {
-                Console.WriteLine(e.Message);
-            }
-
+            var carData = CarData.Current;
+            var invoker = new Invoker(carData);
+            invoker.EnterCars();
+            invoker.ChooseCommand();
         }
     }
 }

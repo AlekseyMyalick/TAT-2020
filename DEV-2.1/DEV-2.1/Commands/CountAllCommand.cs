@@ -13,7 +13,7 @@ namespace DEV_2._1
 
         public void Execute()
         {
-            _carData.CountAll();
+            Console.WriteLine($"total number of all cars: {_carData.CountAll()}");
         }
     }
 }

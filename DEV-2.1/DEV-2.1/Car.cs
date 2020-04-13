@@ -13,7 +13,9 @@ namespace DEV_2._1
         private int _quantity;
         private int _costOne;
 
-
+        /// <summary>
+        /// Constructor of the class
+        /// </summary>
         public Car(string make, string model, int quantity, int costOne)
         {
             Make = make;
@@ -22,6 +24,9 @@ namespace DEV_2._1
             CostOne = costOne;
         }
 
+        /// <summary>
+        /// property Make accepts and returns a value
+        /// </summary>
         public string Make
         {
             get
@@ -35,6 +40,9 @@ namespace DEV_2._1
             }
         }
 
+        /// <summary>
+        /// property Model accepts and returns a value
+        /// </summary>
         public string Model
         {
             get
@@ -48,6 +56,9 @@ namespace DEV_2._1
             }
         }
 
+        /// <summary>
+        /// property Quantity accepts and returns a value
+        /// </summary>
         public int Quantity
         {
             get
@@ -61,6 +72,9 @@ namespace DEV_2._1
             }
         }
 
+        /// <summary>
+        /// property CostOne accepts and returns a value
+        /// </summary>
         public int CostOne
         {
             get
@@ -74,6 +88,10 @@ namespace DEV_2._1
             }
         }
 
+        /// <summary>
+        /// methode CheckQuantity checks quantity to zero
+        /// </summary>
+        /// <param name="value"></param>
         public void CheckQuantity(int value)
         {
             try
@@ -82,7 +100,7 @@ namespace DEV_2._1
                 {
                     throw new ArgumentException("Incorrect quantity!");
                 }
-                _costOne = value;
+                _quantity = value;
             }
             catch (ArgumentException ex)
             {
@@ -93,6 +111,10 @@ namespace DEV_2._1
             }
         }
 
+        /// <summary>
+        /// methode CheckCostOne checks cosOne to zero
+        /// </summary>
+        /// <param name="value"></param>
         public void CheclCostOne(int value)
         {
             try
