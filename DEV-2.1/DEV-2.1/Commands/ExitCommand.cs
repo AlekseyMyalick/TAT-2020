@@ -6,7 +6,7 @@ namespace DEV_2._1
     {
         public void Execute()
         {
-            CarData.GetInstance().Exit();
+            Environment.Exit(0);
         }
     }
 }

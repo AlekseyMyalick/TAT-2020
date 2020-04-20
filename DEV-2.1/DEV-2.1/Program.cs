@@ -8,7 +8,6 @@ namespace DEV_2._1
         {
             var carData = CarData.Current;
             var invoker = new Invoker(carData);
-            invoker.EnterCars();
             invoker.ChooseCommand();
         }
     }

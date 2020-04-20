@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DEV_2._1
 {
-    class Car
+    [Serializable]
+    public class Car
     {
         private string _make;
         private string _model;
@@ -16,6 +13,7 @@ namespace DEV_2._1
         /// <summary>
         /// Constructor of the class
         /// </summary>
+        public Car() { }
         public Car(string make, string model, int quantity, int costOne)
         {
             Make = make;
