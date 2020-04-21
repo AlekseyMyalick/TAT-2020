@@ -10,7 +10,7 @@ namespace DEV_2._1
     class CarData
     {
         XDocument _xCarData;
-        //public static CarData _instance;
+        public static CarData _instance;
         //public const string PATH = @"C://Users\user\source\TAT-2020\DEV-2.1\DEV-2.1\bin\Debug\cars.xml";
         public const string PATH = "cars.xml";
 
@@ -23,19 +23,13 @@ namespace DEV_2._1
         {
             _xCarData = new XDocument();
 
+            if (_instance == null)
+            {
+                _instance = new CarData();
+            }
+
             _xCarData = XDocument.Load(PATH);
         }
-
-        //public static CarData GetInstance()
-        //{
-        //    if (_instance == null)
-        //    {
-        //        _instance = new CarData();
-
-        //    }
-        //    _xCarData = XDocument.Load(PATH);
-        //    return _instance;
-        //}
 
         public static CarData Current { get; } = new CarData();
 
@@ -96,21 +90,6 @@ namespace DEV_2._1
         /// <param name="car"></param>
         public void AddCar(Car car)
         {
-            //_xCarData.Root.Add(new XElement("Autos",
-            //    new XAttribute("make", car.Make),
-            //    new XElement("model", car.Model),
-            //    new XElement("quantity", car.Quantity),
-            //    new XElement("cost", car.CostOne)));
-            //_xCarData.Save(PATH);
-
-            //var openFile = new FileStream(PATH, FileMode.OpenOrCreate);
-            //var carList = (List<Car>)xmlSerializer.Deserialize(openFile);
-            //openFile.Close();
-            //var writeFile = new FileStream(PATH, FileMode.Create);
-            //carList.Add(car);
-            //xmlSerializer.Serialize(writeFile, carList);
-            //writeFile.Close();
-
             XmlSerializer serializer = new XmlSerializer(typeof(List<Car>));
             List<Car> carList = new List<Car>();
 
@@ -125,12 +104,6 @@ namespace DEV_2._1
                 carList.Add(car);
                 serializer.Serialize(fs, carList);
             }
-
-
-
-
-            
-
         }
 
         /// <summary>
