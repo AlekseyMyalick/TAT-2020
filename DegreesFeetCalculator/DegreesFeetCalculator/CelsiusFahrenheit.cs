@@ -4,12 +4,16 @@ namespace DegreesFeetCalculator
 {
     class CelsiusFahrenheit : Converter
     {
+        private const double reversTransferConstatnt = 5.0/9;
+        private const double directTransferConstatnt = 9.0/5;
+        private const double transferConstatnt = 32;
+
         /// <summary>
         /// conversion from degrees Fahrenheit to Celsius
         /// </summary>
         public override double ReverseTransfer(double symbol)
         {
-            return (5 * (symbol - 32)) / 9;
+            return (symbol - transferConstatnt) * reversTransferConstatnt;
         }
 
         /// <summary>
@@ -17,7 +21,7 @@ namespace DegreesFeetCalculator
         /// </summary>
         public override double DirectTransfer(double symbol)
         {
-            return ((9 * symbol) / 5) + 32;
+            return (symbol*directTransferConstatnt) + transferConstatnt;
         }
 
         /// <summary>
