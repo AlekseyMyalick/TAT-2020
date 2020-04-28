@@ -19,7 +19,7 @@ namespace UnitTestDev_1._4
 
         [TestMethod]
         [DataTestMethod]
-        [DataRow(1, 1, -1)]
+        [DataRow(1, 1, -2)]
         [DataRow(-1, 1, 1)]
         [DataRow(1, -1, 1)]
         [ExpectedException(typeof(Exception))]
