@@ -15,42 +15,31 @@ namespace WebApplication1
         public void StartBrowser()
         {
             driver = new ChromeDriver();
-        }
-
-        [Test]
-        public void OpeningSearchEngine()
-        {
-
-
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             driver.Navigate().GoToUrl("http://localhost:49626/Default.aspx");
-            //driver.Url = "http://localhost:49626/Default.aspx";
+
         }
 
         [Test]
-        public void DataInput()
+        public void Positiv()
         {
-            System.Threading.Thread.Sleep(5000);
-            var weit = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
-            weit.Until(ExpectedConditions.ElementExists(By.XPath("//input[@id ='name']")));
-            //elementName.SendKeys("User");
+            DataInput.UsersData(driver, "Name", "Email", "Phone", "Да");
+            Assert.AreEqual(driver.Url, "http://localhost:49626/seeyouthere.html");
+        }
 
-            //IWebElement elementName = driver.FindElement(By.Id("name"));
-            //elementName.SendKeys("User");
+        [Test]
+        public void Negative()
+        {
+            DataInput.UsersData(driver, "Name", "Email", "Phone", "Нет");
+            Assert.AreEqual(driver.Url, "http://localhost:49626/sorryyoucantcome.html");
+        }
 
-            //IWebElement elementEmail = driver.FindElement(By.Id("email"));
-            //elementEmail.SendKeys("user@yandex.ru");
+        [TearDown]
+        public void СloseBrowser()
+        {
+            driver.Close();
+            driver.Quit();
 
-            //IWebElement elementPhone = driver.FindElement(By.Id("phone"));
-            //elementPhone.SendKeys("+375293332210");
-
-            //IWebElement elementWillattend = driver.FindElement(By.Id("willattend"));
-            //elementWillattend.Click();
-        } 
-
-        //[TearDown]
-        //public void closeBrowser()
-        //{
-        //    driver.Close();
-        //}
+        }
     }
 }
