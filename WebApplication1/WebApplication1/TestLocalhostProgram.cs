@@ -29,8 +29,9 @@ namespace WebApplication1
         [Test]
         public void DataInput()
         {
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-            IWebElement browseTab = wait.Until(ExpectedConditions.ElementToBeClickable(By.Id("name")));
+            System.Threading.Thread.Sleep(5000);
+            var weit = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
+            weit.Until(ExpectedConditions.ElementExists(By.XPath("//input[@id ='name']")));
             //elementName.SendKeys("User");
 
             //IWebElement elementName = driver.FindElement(By.Id("name"));
