@@ -109,7 +109,7 @@
     <Compile Include="Summary.aspx.designer.cs">
       <DependentUpon>Summary.aspx</DependentUpon>
     </Compile>
-    <Compile Include="TestLocalhostProgram.cs" />
+    <Compile Include="Tests\TestLocalhostProgram.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

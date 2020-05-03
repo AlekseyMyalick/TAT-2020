@@ -18,21 +18,21 @@ namespace WebApplication1
         }
 
         [Test]
-        public void Positiv()
+        public void PositiveAnswerPage()
         {
             DataInput.UsersData(driver, "Name", "Email", "Phone", "Да");
             Assert.AreEqual(driver.Url, "http://localhost:49626/seeyouthere.html");
         }
 
         [Test]
-        public void Negative()
+        public void NegativeAnswerPage()
         {
             DataInput.UsersData(driver, "Name", "Email", "Phone", "Нет");
             Assert.AreEqual(driver.Url, "http://localhost:49626/sorryyoucantcome.html");
         }
 
         [Test]
-        public void NameError()
+        public void PresenceNameError()
         {
             DataInput.UsersData(driver, String.Empty , "Email", "Phone", "Нет");
             IWebElement nameError = driver.FindElement(By
@@ -42,7 +42,7 @@ namespace WebApplication1
         }
 
         [Test]
-        public void EmailError()
+        public void PresenceEmailError()
         {
             DataInput.UsersData(driver, "Name", String.Empty, "Phone", "Нет");
             IWebElement nameError = driver.FindElement(By
@@ -51,7 +51,7 @@ namespace WebApplication1
         }
 
         [Test]
-        public void PhoneError()
+        public void PresencePhoneError()
         {
             DataInput.UsersData(driver, "Name", "Email", String.Empty, "Нет");
             IWebElement nameError = driver.FindElement(By
@@ -60,7 +60,7 @@ namespace WebApplication1
         }
 
         [Test]
-        public void WillattendError()
+        public void PresenceWillattendError()
         {
             DataInput.UsersData(driver, "Name", "Email", "Phone", "Выберите один из вариантов");
             IWebElement nameError = driver.FindElement(By
