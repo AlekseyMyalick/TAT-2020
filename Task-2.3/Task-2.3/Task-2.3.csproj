@@ -58,9 +58,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FirstMail.cs" />
+    <Compile Include="YandexMail\YandexMailHomePage.cs" />
+    <Compile Include="YandexMail\YandexMailLoginPage.cs" />
+    <Compile Include="TestMailRu.cs" />
+    <Compile Include="MailRu\MailRuHomePage.cs" />
+    <Compile Include="MailRu\MailRuLoginPage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MailRu\MailRuWriteLetterPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
