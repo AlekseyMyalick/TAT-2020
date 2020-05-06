@@ -93,7 +93,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataInput.cs" />
+    <Compile Include="LocallhostInvationPage\AnswerPage.cs" />
+    <Compile Include="LocallhostInvationPage\InformationPage.cs" />
+    <Compile Include="LocallhostInvationPage\LocallhostLoginPage.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
