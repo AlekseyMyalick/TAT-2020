@@ -58,7 +58,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MailRu\MailRuInboxPage.cs" />
     <Compile Include="YandexMail\YandexMailHomePage.cs" />
+    <Compile Include="YandexMail\YandexMailInboxPage.cs" />
     <Compile Include="YandexMail\YandexMailLoginPage.cs" />
     <Compile Include="TestMailRu.cs" />
     <Compile Include="MailRu\MailRuHomePage.cs" />

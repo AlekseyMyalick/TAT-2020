@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace Task_2._3.ProtonMail
+namespace Task_2._3.YandexMail
 {
     class YandexMailLoginPage
     {
@@ -41,6 +41,7 @@ namespace Task_2._3.ProtonMail
         }
 
        
+
         public YandexMailHomePage loginAs(string login, string password)
         {
             openAuthorizationPage();

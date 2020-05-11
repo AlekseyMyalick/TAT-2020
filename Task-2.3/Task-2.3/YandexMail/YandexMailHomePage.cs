@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace Task_2._3.ProtonMail
+namespace Task_2._3.YandexMail
 {
     class YandexMailHomePage
     {
@@ -18,18 +18,14 @@ namespace Task_2._3.ProtonMail
             return this;
         }
 
-       public bool checkThatLetterNotRead()
-        {
-            IWebElement elemenLetterNotRead = _driver.FindElement(By
-                .XPath("//td[@class='w-x-ph__auth__col w-x-ph__auth__col_right']"));
-            return elemenLetterNotRead.Displayed;
-        }
-
         public YandexMailLoginPage logOut()
         {
             IWebElement elemenLogOut = _driver.FindElement(By
-                .XPath("//td[@class='w-x-ph__auth__col w-x-ph__auth__col_right']"));
-            elemenLogOut.Submit();
+                .XPath("//div[@class='mail-User-Name']"));
+            elemenLogOut.Click();
+            IWebElement exit = _driver.FindElement(By
+                .XPath("//a[text()='Выйти из сервисов Яндекса']"));
+            exit.Click();
             return new YandexMailLoginPage(_driver);
         }
     }
